@@ -1,12 +1,10 @@
-import SimpleRedux from './redux/SimpleRedux'
-import ToolRedux from './redux/ToolRedux'
+import ReduxApp from './redux/ReduxApp'
 
 function App() {
   return (
       <div>
           <div>hello world</div>
-          <SimpleRedux/>
-          <ToolRedux/>
+          <ReduxApp/>
           <div>change me</div>
       </div>
   );

@@ -14,13 +14,12 @@ function counterReducer(state = {value: 0}, action) {
 
 let store = createStore(counterReducer)
 
+store.subscribe(() => {
+    console.log('simple redux state value', store.getState())
+})
 
 export default function App() {
 
-    console.log('create simple redux')
-    store.subscribe(() => {
-        console.log('state value', store.getState())
-    })
     return (
         <>
             <div>Simple Redux=========</div>
