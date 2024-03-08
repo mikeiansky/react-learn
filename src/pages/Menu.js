@@ -9,7 +9,7 @@ export default function App(){
     }
 
     const gotoLogin = ()=>{
-        navigate('/login')
+        navigate('/login/458')
     }
 
     const gotoRedux = ()=>{
@@ -25,8 +25,10 @@ export default function App(){
                     backgroundColor: "#dddddd",
                     float: 'left'
                 }}>
-                    <button onClick={gotoAbout}>about</button><br/>
+                    <button onClick={gotoAbout}>about</button>
+                    <br/>
                     <button onClick={gotoRedux}>redux</button>
+                    <br/>
                     <button onClick={gotoLogin}>login</button>
                 </div>
                 <div  style={{

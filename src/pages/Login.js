@@ -1,8 +1,14 @@
-import {useNavigate} from 'react-router'
+import {useNavigate, useParams} from 'react-router'
 
 export default function (){
 
+    const params = useParams()
+
     const navigate = useNavigate()
+
+    const {id} = params
+
+    console.log('login page params', params, 'id', id)
 
     return (
         <>
