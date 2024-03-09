@@ -1,4 +1,5 @@
 import {Outlet, useNavigate} from "react-router"
+import {Link} from "react-router-dom";
 
 export default function App(){
 
@@ -27,7 +28,11 @@ export default function App(){
                 }}>
                     <button onClick={gotoAbout}>about</button>
                     <br/>
-                    <button onClick={gotoRedux}>redux</button>
+                    {/*<button onClick={gotoRedux}>redux</button>*/}
+                    <Link to={'/redux'}>redux-raw</Link><br/>
+                    <Link to={'/saga'}>redux-saga</Link><br/>
+                    <Link to={'/base'}>base-syntax</Link><br/>
+                    <Link to={'/promise'}>promise</Link>
                     <br/>
                     <button onClick={gotoLogin}>login</button>
                 </div>

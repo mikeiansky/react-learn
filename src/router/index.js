@@ -4,6 +4,9 @@ import NotFoundApp from '../pages/404error'
 import About from '../pages/About'
 import Menu from '../pages/Menu'
 import Login from '../pages/Login'
+import BaseSyntax from '../pages/BaseSyntax'
+import PromiseApp from '../pages/PromiseApp'
+import ReduxSagaApp from "../redux-saga";
 
 const router = createBrowserRouter([
     {
@@ -13,6 +16,18 @@ const router = createBrowserRouter([
             {
                 path: '/redux',
                 element: <ReduxApp/>,
+            },
+            {
+                path: '/saga',
+                element: <ReduxSagaApp/>,
+            },
+            {
+                path: '/base',
+                element: <BaseSyntax/>,
+            },
+            {
+                path: '/promise',
+                element: <PromiseApp/>,
             }
         ]
     },

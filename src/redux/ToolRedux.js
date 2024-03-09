@@ -1,21 +1,27 @@
 import {createSlice, configureStore} from '@reduxjs/toolkit'
 
+const add_f = function (state, action) {
+    // console.log('redux tool kit add')
+    state.value = state.value + 1
+}
+
+const minus_f = function (state, action) {
+    // console.log('redux tool kit minus')
+    state.value = state.value - 1
+}
+
+const multiply_f = function (state, action) {
+    // console.log('redux tool kit multiply')
+    state.value = state.value * 2
+}
+
 const todoSlice = createSlice({
     name: 'todo',
     initialState: {value: 0},
     reducers: {
-        add(state, action) {
-            // console.log('redux tool kit add')
-            state.value = state.value + 1
-        },
-        minus(state, action) {
-            // console.log('redux tool kit minus')
-            state.value = state.value - 1
-        },
-        multiply(state, action) {
-            // console.log('redux tool kit multiply')
-            state.value = state.value * 2
-        }
+        add : add_f,
+        minus : minus_f,
+        multiply: multiply_f,
     }
 })
 
@@ -30,6 +36,9 @@ store.subscribe(()=>{
 })
 
 export default function App() {
+    console.log('add is ', add)
+    console.log('add_f is ', add_f)
+    console.log('add is add_f', Object.is(add, add_f))
 
     return (
         <>
