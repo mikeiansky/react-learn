@@ -5,6 +5,10 @@ import About from '../pages/About'
 import Menu from '../pages/Menu'
 import Login from '../pages/Login'
 import BaseSyntax from '../pages/BaseSyntax'
+import BaseApp from '../pages/base'
+import Iterator from '../pages/base/Iterator'
+import Normal from '../pages/base/Normal'
+import Generator from '../pages/base/Generator'
 import PromiseApp from '../pages/PromiseApp'
 import ReduxSagaApp from "../redux-saga";
 
@@ -23,7 +27,21 @@ const router = createBrowserRouter([
             },
             {
                 path: '/base',
-                element: <BaseSyntax/>,
+                element: <BaseApp/>,
+                children: [
+                    {
+                        path: '/base/iterator',
+                        element: <Iterator/>
+                    },
+                    {
+                        path: '/base/normal',
+                        element: <Normal/>
+                    },
+                    {
+                        path: '/base/generator',
+                        element: <Generator/>
+                    }
+                ]
             },
             {
                 path: '/promise',

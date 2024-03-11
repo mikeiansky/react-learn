@@ -31,7 +31,7 @@ export default function App(){
                     {/*<button onClick={gotoRedux}>redux</button>*/}
                     <Link to={'/redux'}>redux-raw</Link><br/>
                     <Link to={'/saga'}>redux-saga</Link><br/>
-                    <Link to={'/base'}>base-syntax</Link><br/>
+                    <Link to={'/base'}>base</Link><br/>
                     <Link to={'/promise'}>promise</Link>
                     <br/>
                     <button onClick={gotoLogin}>login</button>
