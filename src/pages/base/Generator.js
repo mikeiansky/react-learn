@@ -61,6 +61,8 @@ function * gen2() {
     yield 444
     yield 555
     return 666
+    yield 777
+    yield 8888
 }
 
 function * genColl(c1, c2) {
@@ -79,6 +81,34 @@ function testGenColl() {
 
 }
 
+function testCall() {
+    console.log('test call start ... ')
+    const g1 = gen1()
+    console.log('g1 value is ', g1)
+    console.log('g1.next() value is ', g1.next())
+    console.log('test call complete ... ')
+}
+
+function testConsole() {
+    console.log('testConsole start ...')
+
+    const cg = function*() {
+        yield 1
+        console.log('one')
+        yield 2
+        console.log('two')
+        yield 3
+        console.log('three')
+        return 4
+    }
+
+    const arr = [...cg()]
+
+    console.log(arr)
+
+    console.log('testConsole complete ...')
+}
+
 export default function App(){
 
 
@@ -86,6 +116,8 @@ export default function App(){
     testF()
     testReturnBeforeYield()
     testGenColl()
+    testCall()
+    testConsole()
 
     return (
 
