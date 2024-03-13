@@ -32,7 +32,8 @@ export default function App(){
                     <Link to={'/redux'}>redux-raw</Link><br/>
                     <Link to={'/saga'}>redux-saga</Link><br/>
                     <Link to={'/base'}>base</Link><br/>
-                    <Link to={'/promise'}>promise</Link>
+                    <Link to={'/promise'}>promise</Link><br/>
+                    <Link to={'/react'}>react</Link>
                     <br/>
                     <button onClick={gotoLogin}>login</button>
                 </div>

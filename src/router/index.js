@@ -11,7 +11,11 @@ import Normal from '../pages/base/Normal'
 import Generator from '../pages/base/Generator'
 import AsyncApp from '../pages/base/AsyncApp'
 import PromiseApp from '../pages/PromiseApp'
+import ReactApp from '../pages/react'
 import ReduxSagaApp from "../redux-saga";
+import ReactNormal from '../pages/react/ReactNormal'
+import ReactState from '../pages/react/ReactState'
+import ReactImmer from '../pages/react/ReactImmer'
 
 const router = createBrowserRouter([
     {
@@ -51,6 +55,24 @@ const router = createBrowserRouter([
             {
                 path: '/promise',
                 element: <PromiseApp/>,
+            },
+            {
+                path: '/react',
+                element: <ReactApp/>,
+                children: [
+                    {
+                        path: '/react/normal',
+                        element: <ReactNormal/>
+                    },
+                    {
+                        path: '/react/state',
+                        element: <ReactState/>
+                    },
+                    {
+                        path: '/react/immer',
+                        element: <ReactImmer/>
+                    }
+                ]
             }
         ]
     },
