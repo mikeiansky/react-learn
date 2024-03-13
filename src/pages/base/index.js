@@ -19,6 +19,7 @@ export default function App(){
                 <Link to={'/base/normal'}>normal</Link><br/>
                 <Link to={'/base/iterator'}>iterator</Link><br/>
                 <Link to={'/base/generator'}>generator</Link><br/>
+                <Link to={'/base/async'}>async</Link><br/>
             </div>
             <div style={{
                 float: 'left',

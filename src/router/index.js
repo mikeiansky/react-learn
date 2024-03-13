@@ -9,6 +9,7 @@ import BaseApp from '../pages/base'
 import Iterator from '../pages/base/Iterator'
 import Normal from '../pages/base/Normal'
 import Generator from '../pages/base/Generator'
+import AsyncApp from '../pages/base/AsyncApp'
 import PromiseApp from '../pages/PromiseApp'
 import ReduxSagaApp from "../redux-saga";
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
                     {
                         path: '/base/generator',
                         element: <Generator/>
+                    },
+                    {
+                        path: '/base/async',
+                        element: <AsyncApp/>
                     }
                 ]
             },
