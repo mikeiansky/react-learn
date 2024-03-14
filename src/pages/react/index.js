@@ -15,6 +15,8 @@ export default function App() {
                 <Link to={'/react/normal'}>react-normal</Link><br/>
                 <Link to={'/react/state'}>react-state</Link><br/>
                 <Link to={'/react/immer'}>react-immer</Link><br/>
+                <Link to={'/react/reducer'}>react-reducer</Link><br/>
+                <Link to={'/react/context'}>react-context</Link><br/>
             </div>
             <div style={{
                 float: 'left',

@@ -16,6 +16,8 @@ import ReduxSagaApp from "../redux-saga";
 import ReactNormal from '../pages/react/ReactNormal'
 import ReactState from '../pages/react/ReactState'
 import ReactImmer from '../pages/react/ReactImmer'
+import ReactReducer from '../pages/react/ReactReducer'
+import ReactContext from '../pages/react/ReactContext'
 
 const router = createBrowserRouter([
     {
@@ -71,6 +73,14 @@ const router = createBrowserRouter([
                     {
                         path: '/react/immer',
                         element: <ReactImmer/>
+                    },
+                    {
+                        path: '/react/reducer',
+                        element: <ReactReducer/>
+                    },
+                    {
+                        path: '/react/context',
+                        element: <ReactContext/>
                     }
                 ]
             }
