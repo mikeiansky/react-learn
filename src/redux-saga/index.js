@@ -4,9 +4,10 @@ import createSagaMiddleware from 'redux-saga'
 import {useState} from "react";
 
 // ...
-import {helloSaga} from './sagas'
+import {helloSaga, gather, all} from './sagas'
 
 function counterReducer(state = {value: 0}, action) {
+    console.log('reducer state : ', state, ', action : ',action)
     switch (action.type) {
         case 'add':
             return {value: state.value + 1}
@@ -23,7 +24,8 @@ const store = createStore(
     applyMiddleware(sagaMiddleware)
 )
 
-sagaMiddleware.run(helloSaga)
+// sagaMiddleware.run(all)
+sagaMiddleware.run(gather)
 
 const action = type => store.dispatch({type})
 
@@ -34,11 +36,17 @@ const Counter = () => {
     const [count, setCount] = useState(0)
 
     store.subscribe(() => {
-        setCount(store.getState().value)
+        if (store.getState()) {
+            setCount(store.getState().value)
+        }
     })
 
     return (
         <div>
+            <button onClick={() => action('INCREMENT_ASYNC')}>
+                IncrementAsync
+            </button>
+            {' '}
             <button onClick={() => action('add')}>
                 Increment
             </button>
@@ -48,7 +56,7 @@ const Counter = () => {
             </button>
             {' '}
             <button onClick={() => action('multiply')}>
-                Decrement
+                Multiply
             </button>
             <hr/>
             <div>
@@ -65,7 +73,7 @@ export default function () {
     return (
         <>
             <p>This is redux saga app</p>
-            <Counter/>
+            <Counter />
         </>
     )
 
