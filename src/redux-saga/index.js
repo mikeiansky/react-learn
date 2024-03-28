@@ -16,6 +16,8 @@ function counterReducer(state = {value: 0}, action) {
         case 'multiply':
             return {value: state.value * 2}
     }
+
+    return state
 }
 
 const sagaMiddleware = createSagaMiddleware()
@@ -39,11 +41,11 @@ const Counter = () => {
 
     const [count, setCount] = useState(0)
 
-    // store.subscribe(() => {
-    //     if (store.getState()) {
-    //         setCount(store.getState().value)
-    //     }
-    // })
+    store.subscribe(() => {
+        if (store.getState()) {
+            setCount(store.getState().value)
+        }
+    })
 
     return (
         <div>

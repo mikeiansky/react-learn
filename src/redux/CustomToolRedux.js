@@ -2,7 +2,7 @@ import {createSlice, configureStore} from '@reduxjs/toolkit'
 
 
 const todoSlice = createSlice({
-    name: 'todo/sub',
+    name: 'hello/sub',
     initialState: {
         value: 0,
         name: 'custom'

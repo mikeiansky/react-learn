@@ -19,8 +19,8 @@ function * incrementAsync(action){
 
 export function * gather(){
     console.log('gather ....... ')
-    // yield takeEvery('INCREMENT_ASYNC', incrementAsync)
-    yield take('INCREMENT_ASYNC', incrementAsync)
+    yield takeEvery('INCREMENT_ASYNC', incrementAsync)
+    // yield take('INCREMENT_ASYNC', incrementAsync)
 }
 
 

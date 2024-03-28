@@ -8,7 +8,6 @@ function counterReducer(state = {value: 0}, action) {
             return {value: state.value - 1}
         case 'multiply':
             return {value: state.value * 2}
-            return state
     }
 }
 
