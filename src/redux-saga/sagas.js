@@ -1,4 +1,4 @@
-import {delay, takeEvery, call, put} from 'redux-saga/effects'
+import {delay, takeEvery, take,call, put} from 'redux-saga/effects'
 
 
 export function* helloSaga() {
@@ -19,7 +19,8 @@ function * incrementAsync(action){
 
 export function * gather(){
     console.log('gather ....... ')
-    yield takeEvery('INCREMENT_ASYNC', incrementAsync)
+    // yield takeEvery('INCREMENT_ASYNC', incrementAsync)
+    yield take('INCREMENT_ASYNC', incrementAsync)
 }
 
 

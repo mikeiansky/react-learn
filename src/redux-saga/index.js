@@ -29,17 +29,21 @@ sagaMiddleware.run(gather)
 
 const action = type => store.dispatch({type})
 
+store.subscribe(() => {
+    console.log('subscribe state', store.getState())
+})
+
 const Counter = () => {
 
-    console.log('store state value', store.getState())
+    // console.log('store state value', store.getState())
 
     const [count, setCount] = useState(0)
 
-    store.subscribe(() => {
-        if (store.getState()) {
-            setCount(store.getState().value)
-        }
-    })
+    // store.subscribe(() => {
+    //     if (store.getState()) {
+    //         setCount(store.getState().value)
+    //     }
+    // })
 
     return (
         <div>

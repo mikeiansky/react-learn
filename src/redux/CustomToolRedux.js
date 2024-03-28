@@ -19,7 +19,8 @@ const todoSlice = createSlice({
         },
         multiply(state, action) {
             state.value = state.value * 2
-            state.name = action.payload.ciwei
+            // state.name = action.payload.ciwei
+            console.log('multiply tag value is', action.payload)
         }
     }
 })
@@ -46,7 +47,7 @@ export default function App() {
             }}>minus
             </button>
             <button onClick={() => {
-                store.dispatch(multiply({ciwei: 'btn-multiply'}))
+                store.dispatch(multiply('multiply'))
             }}>multiply
             </button>
             <div>Custom Tool Redux=========</div>
