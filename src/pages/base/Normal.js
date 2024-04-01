@@ -86,19 +86,115 @@ function PropsApp(props) {
     </div>
 }
 
+function testTopLeveObject(){
+    console.log('window is ', window)
+    console.log('global is ', global)
+}
+
+function testDestruct(){
+
+    let {toString: s} = 123
+    console.log(s)
+
+    const v = 391
+    console.log(v.toString())
+
+}
+
+function move({x = 3, y = 7} = {}){
+    console.log('move x:', x, ', y:', y)
+}
+
+function testTemplateString(){
+    const hold = 'ian'
+
+    const content = `
+        hello world
+        start 'str' value : ${hold} \n
+        end complete
+    `
+
+    console.log(String.fromCharCode(0x20BB7))
+
+    console.log('content value is ', content)
+}
+
+function testProperty(){
+
+    const ka = 'age'
+
+    const obj = {
+        ['hello'] : 'world',
+        [ka] : 34
+    }
+
+    console.log(obj)
+    console.log(obj.hello)
+    console.log(obj.age)
+    console.log(obj['hello'])
+    console.log(obj['age'])
+    // Symbol.hasInstance
+    // Symbol.iterator
+    // Symbol.split
+
+}
+
+function testMultiThenPromise(){
+
+    new Promise((rev, rej) =>{
+        rev('hello')
+    }).then(r1 => {
+        console.log('r1', r1)
+        return 'world'
+    }).then(r2 => {
+        console.log('r2', r2)
+        return new Promise((rev, rej)=>{
+            // setTimeout(rev, 2000, 'help')
+            setTimeout(rej, 2000, 'out-error')
+        })
+    }).then(r3 => {
+        console.log('r3', r3)
+        return new Promise((rev, rej) => {
+            setTimeout(rev, 1000, 'concat : ' + r3)
+        })
+    }).then(
+        r4 => {
+            console.log('r4', r4)
+        // () => {
+        // console.log('r4 complete')
+    }).catch(err => {
+        console.log('catch error', err)
+    })
+
+    console.log('test multi then promise complete ...')
+
+}
+
 export default function App() {
 
-    testAttr()
-    testFunction()
-    testLambdaReturn()
-    testConnect()
-    testObjArg()
+    // testAttr()
+    // testFunction()
+    // testLambdaReturn()
+    // testConnect()
+    // testObjArg()
+    // testTopLeveObject()
+    // testDestruct()
+    // move({x:5, y : 9})
+    // move()
+
+    // testTemplateString()
+    // testProperty()
+
 
     const person = {
         name: 'ciwei',
         // msg: 'ciwei-00',
         age : 45
     }
+
+    // console.log('typeof person', typeof person)
+
+    testMultiThenPromise()
 
     return (
         <div>
