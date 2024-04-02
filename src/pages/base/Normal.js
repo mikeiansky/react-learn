@@ -79,7 +79,7 @@ function testObjArg() {
 
 function PropsApp(props) {
 
-    console.log('props app value is', props)
+    // console.log('props app value is', props)
 
     return <div>
         This is props app
@@ -170,6 +170,42 @@ function testMultiThenPromise(){
 
 }
 
+function restFunc(...args){
+    console.log('args', args)
+    for (let v of args) {
+        console.log(v)
+    }
+}
+
+function testFunctionRest(){
+
+    restFunc(1, 4, 5, 9)
+    console.log('split ==========> ')
+    restFunc(['hello', 'world'])
+
+}
+
+async function timeout(ms){
+    return new Promise((res, rev) => {
+        setTimeout(res, ms, 'hello')
+    })
+}
+
+async function getTitle(){
+    return new Promise((res, rev)=>{
+        res('mike')
+    })
+}
+
+async function testAsync(){
+    console.log('test async start')
+    await timeout(1000)
+    getTitle().then(console.log)
+    // await const title = yield getTitle()
+    // console.log('title ', title)
+    console.log('test async complete')
+}
+
 export default function App() {
 
     // testAttr()
@@ -194,7 +230,13 @@ export default function App() {
 
     // console.log('typeof person', typeof person)
 
-    testMultiThenPromise()
+    // testMultiThenPromise()
+
+
+    // testFunctionRest()
+
+    testAsync()
+
 
     return (
         <div>
