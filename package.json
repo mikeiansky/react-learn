@@ -2,6 +2,9 @@
   "name": "react-001",
   "version": "0.1.0",
   "private": true,
+  "templateInfo": {
+    "css": "sass"
+  },
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
@@ -19,6 +22,7 @@
     "react-scripts": "5.0.1",
     "redux": "^5.0.1",
     "redux-saga": "^1.3.0",
+    "sass": "^1.75.0",
     "sort-by": "^1.2.0",
     "use-immer": "^0.9.0",
     "web-vitals": "^2.1.4"

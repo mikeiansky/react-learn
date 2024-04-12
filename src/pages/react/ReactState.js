@@ -1,23 +1,23 @@
 import {useState} from "react";
 import { css } from '@emotion/react';
+import './hello.scss'
+// import './hello.css'
 
 export default function () {
 
     const [count, setCount] = useState(0)
     const [count2, setCount2] = useState(0)
 
-    const c2_css = css`
-        font-size: 25px;
-        color: red;
-    `;
-
     return (
         <div>
             <h1>react use state</h1>
-            <button onClick={() => {
-                setCount(count + 1)
-            }}>increment
-            </button>
+            <span>
+                <button onClick={() => {
+                    setCount(count + 1)
+                }}>increment
+                </button>
+            </span>
+
             <br/>
             state count value is : {count}
             <br/>
@@ -30,9 +30,9 @@ export default function () {
                 add variety
             </button>
             <br/>
-            <div >
+            <main className={'hello'}>
                 count2 : {count2}
-            </div>
+            </main>
             <br/>
 
         </div>
