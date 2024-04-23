@@ -18,6 +18,7 @@ import ReactState from '../pages/react/ReactState'
 import ReactImmer from '../pages/react/ReactImmer'
 import ReactReducer from '../pages/react/ReactReducer'
 import ReactContext from '../pages/react/ReactContext'
+import Style from '../style'
 
 const router = createBrowserRouter([
     {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
                         element: <ReactContext/>
                     }
                 ]
+            },
+            {
+                path: "/style",
+                element: <Style/>
             }
         ]
     },

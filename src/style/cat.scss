@@ -1,0 +1,12 @@
+$bg-color: #f0c35b;
+$font-color: #e1845c;
+
+.cat_body {
+  background: $bg-color;
+
+  .cat_eye {
+    color: $font-color;
+    width: 400px;
+  }
+
+}

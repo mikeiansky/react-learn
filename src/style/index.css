@@ -1,0 +1,10 @@
+
+.ct {
+    --bg-color : #89ef12;
+    --m-w: 300px;
+}
+
+.ms {
+    background: var(--bg-color);
+    width: var(--m-w);
+}

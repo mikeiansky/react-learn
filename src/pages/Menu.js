@@ -28,12 +28,15 @@ export default function App(){
                 }}>
                     <button onClick={gotoAbout}>about</button>
                     <br/>
+                    <ul>
+                        <li><Link to={'/redux'}>redux-raw</Link></li>
+                        <li><Link to={'/saga'}>redux-saga</Link></li>
+                        <li><Link to={'/base'}>base</Link></li>
+                        <li><Link to={'/promise'}>promise</Link></li>
+                        <li><Link to={'/react'}>react</Link></li>
+                        <li><Link to={'/style'}>style</Link></li>
+                    </ul>
                     {/*<button onClick={gotoRedux}>redux</button>*/}
-                    <Link to={'/redux'}>redux-raw</Link><br/>
-                    <Link to={'/saga'}>redux-saga</Link><br/>
-                    <Link to={'/base'}>base</Link><br/>
-                    <Link to={'/promise'}>promise</Link><br/>
-                    <Link to={'/react'}>react</Link>
                     <br/>
                     <button onClick={gotoLogin}>login</button>
                 </div>
