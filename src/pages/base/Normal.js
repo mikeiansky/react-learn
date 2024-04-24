@@ -206,6 +206,60 @@ async function testAsync(){
     console.log('test async complete')
 }
 
+function testSaveLocalStorage() {
+    console.log("save local storage start 111")
+
+    console.log('save local storage', localStorage)
+    // localStorage.setItem('my_name', 'ian-001')
+
+    // 保存数据到 localStorage
+    localStorage.setItem('my_name_02', 'ian-002');
+
+// 获取 localStorage 中的数据
+//     const savedName = localStorage.getItem('my_name');
+
+// 检查是否成功获取数据并输出
+//     if (savedName) {
+//         console.log('成功获取到数据：', savedName);
+//     } else {
+//         console.log('未找到保存的数据');
+//     }
+
+
+    console.log("save local storage end")
+}
+
+function testLoadLocalStorage() {
+    console.log("load local storage start")
+    console.log('load local storage', localStorage)
+    console.log('find_data ',localStorage.getItem('my_name_02'))
+    console.log("load local storage complete")
+}
+
+function testLocalStorage(){
+    testSaveLocalStorage()
+    testLoadLocalStorage()
+}
+
+function testSaveDB(){
+    // const request = indexedDB.open('company', '1.0')
+    // console.log('dbdbdbdb',request)
+    // db.transaction(function (tx){
+    //     tx.executeSql('create table if not exists company_t (id unique, name)')
+    //     tx.executeSql('insert into company_t values (1, "ciwei")')
+    //     tx.executeSql('insert into company_t values (2, "ian")')
+    // })
+}
+
+function testLoadDB(){
+
+}
+
+function testDB(){
+    testSaveDB()
+    testLoadDB()
+}
+
 export default function App() {
 
     // testAttr()
@@ -221,7 +275,6 @@ export default function App() {
     // testTemplateString()
     // testProperty()
 
-
     const person = {
         name: 'ciwei',
         // msg: 'ciwei-00',
@@ -229,14 +282,12 @@ export default function App() {
     }
 
     // console.log('typeof person', typeof person)
-
     // testMultiThenPromise()
-
-
     // testFunctionRest()
+    // testAsync()
 
-    testAsync()
-
+    // testLocalStorage()
+    testDB()
 
     return (
         <div>
