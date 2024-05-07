@@ -1,5 +1,7 @@
 import SimpleRedux from './SimpleRedux'
+import SimpleReduxV2 from './SimpleReduxV2'
 import ToolRedux from './ToolRedux'
+import ToolReduxV2 from './ToolReduxV2'
 import CustomSimpleRedux from './CustomSimpleRedux'
 import CustomToolRedux from './CustomToolRedux'
 import ReactReduxApp, {store} from './ReactReduxApp'
@@ -15,6 +17,8 @@ export default function App() {
             <Provider store={store}>
                 <ReactReduxApp/>
             </Provider>
+            <SimpleReduxV2 />
+            <ToolReduxV2 />
         </>
     )
 }
