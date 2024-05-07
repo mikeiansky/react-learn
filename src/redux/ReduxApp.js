@@ -6,6 +6,7 @@ import CustomSimpleRedux from './CustomSimpleRedux'
 import CustomToolRedux from './CustomToolRedux'
 import ReactReduxApp, {store} from './ReactReduxApp'
 import {Provider} from 'react-redux'
+import ReactReduxV2 from './ReactReduxV2'
 
 export default function App() {
     return (
@@ -19,6 +20,7 @@ export default function App() {
             </Provider>
             <SimpleReduxV2 />
             <ToolReduxV2 />
+            <ReactReduxV2 />
         </>
     )
 }

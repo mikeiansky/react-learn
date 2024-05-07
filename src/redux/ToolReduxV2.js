@@ -7,16 +7,16 @@ const cs = createSlice({
         size: 87
     },
     reducers: {
-        add: state => {
-            console.log('add action')
+        add: (state, {type, payload}) => {
+            console.log('add action', type, payload, state)
             return {size: state.size + 1}
         },
-        minus: state => {
-            console.log('minus action')
+        minus: (state, action) => {
+            console.log('minus action', action, state)
             return {size: state.size - 1}
         },
-        multiply: state => {
-            console.log('multiply action')
+        multiply: (state, action) => {
+            console.log('multiply action', action, state)
             return {size: state.size * 2}
         }
     }
@@ -24,11 +24,14 @@ const cs = createSlice({
 
 const {add, minus, multiply} = cs.actions
 
+console.log('print action ===> ')
+console.log(add)
+
 const store = configureStore({
     reducer: cs.reducer
 })
 
-store.subscribe(()=>{
+store.subscribe(() => {
     console.log(store.getState())
 })
 
@@ -39,15 +42,15 @@ export default function App() {
             <div>Tool Redux V2 =========></div>
             <div>
                 <button onClick={() => {
-                    store.dispatch(add())
+                    store.dispatch(add({name: 'ian', age: 33}))
                 }}>add
                 </button>
                 <button onClick={() => {
-                    store.dispatch(minus())
+                    store.dispatch(minus({book: 'javascript', price: 29.99}))
                 }}>minus
                 </button>
                 <button onClick={() => {
-                    store.dispatch(multiply())
+                    store.dispatch(multiply({company: 'ciwei', info: {address: 'shenzhen', num: 61}}))
                 }}>multiply
                 </button>
             </div>
