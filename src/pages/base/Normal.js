@@ -1,3 +1,5 @@
+import {useState} from "react";
+
 function testAttr() {
 
     const age_attr = 'age'
@@ -86,12 +88,12 @@ function PropsApp(props) {
     </div>
 }
 
-function testTopLeveObject(){
+function testTopLeveObject() {
     console.log('window is ', window)
     console.log('global is ', global)
 }
 
-function testDestruct(){
+function testDestruct() {
 
     let {toString: s} = 123
     console.log(s)
@@ -101,11 +103,11 @@ function testDestruct(){
 
 }
 
-function move({x = 3, y = 7} = {}){
+function move({x = 3, y = 7} = {}) {
     console.log('move x:', x, ', y:', y)
 }
 
-function testTemplateString(){
+function testTemplateString() {
     const hold = 'ian'
 
     const content = `
@@ -119,13 +121,13 @@ function testTemplateString(){
     console.log('content value is ', content)
 }
 
-function testProperty(){
+function testProperty() {
 
     const ka = 'age'
 
     const obj = {
-        ['hello'] : 'world',
-        [ka] : 34
+        ['hello']: 'world',
+        [ka]: 34
     }
 
     console.log(obj)
@@ -139,16 +141,16 @@ function testProperty(){
 
 }
 
-function testMultiThenPromise(){
+function testMultiThenPromise() {
 
-    new Promise((rev, rej) =>{
+    new Promise((rev, rej) => {
         rev('hello')
     }).then(r1 => {
         console.log('r1', r1)
         return 'world'
     }).then(r2 => {
         console.log('r2', r2)
-        return new Promise((rev, rej)=>{
+        return new Promise((rev, rej) => {
             // setTimeout(rev, 2000, 'help')
             setTimeout(rej, 2000, 'out-error')
         })
@@ -160,9 +162,9 @@ function testMultiThenPromise(){
     }).then(
         r4 => {
             console.log('r4', r4)
-        // () => {
-        // console.log('r4 complete')
-    }).catch(err => {
+            // () => {
+            // console.log('r4 complete')
+        }).catch(err => {
         console.log('catch error', err)
     })
 
@@ -170,14 +172,14 @@ function testMultiThenPromise(){
 
 }
 
-function restFunc(...args){
+function restFunc(...args) {
     console.log('args', args)
     for (let v of args) {
         console.log(v)
     }
 }
 
-function testFunctionRest(){
+function testFunctionRest() {
 
     restFunc(1, 4, 5, 9)
     console.log('split ==========> ')
@@ -185,19 +187,19 @@ function testFunctionRest(){
 
 }
 
-async function timeout(ms){
+async function timeout(ms) {
     return new Promise((res, rev) => {
         setTimeout(res, ms, 'hello')
     })
 }
 
-async function getTitle(){
-    return new Promise((res, rev)=>{
+async function getTitle() {
+    return new Promise((res, rev) => {
         res('mike')
     })
 }
 
-async function testAsync(){
+async function testAsync() {
     console.log('test async start')
     await timeout(1000)
     getTitle().then(console.log)
@@ -232,16 +234,16 @@ function testSaveLocalStorage() {
 function testLoadLocalStorage() {
     console.log("load local storage start")
     console.log('load local storage', localStorage)
-    console.log('find_data ',localStorage.getItem('my_name_02'))
+    console.log('find_data ', localStorage.getItem('my_name_02'))
     console.log("load local storage complete")
 }
 
-function testLocalStorage(){
+function testLocalStorage() {
     testSaveLocalStorage()
     testLoadLocalStorage()
 }
 
-function testSaveDB(){
+function testSaveDB() {
     // const request = indexedDB.open('company', '1.0')
     // console.log('dbdbdbdb',request)
     // db.transaction(function (tx){
@@ -251,13 +253,35 @@ function testSaveDB(){
     // })
 }
 
-function testLoadDB(){
+function testLoadDB() {
 
 }
 
-function testDB(){
+function testDB() {
     testSaveDB()
     testLoadDB()
+}
+
+function sendRequest(change) {
+    var xhr = new XMLHttpRequest();
+    const url = 'https://api.vvhan.com/api/moyu?type=json'
+    // const url= 'https://www.baidu.com'
+    xhr.onreadystatechange = function () {
+        // 通信成功时，状态值为4
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText);
+                change && change(xhr.responseText)
+            } else {
+                console.error(xhr.statusText);
+            }
+        }
+    };
+    xhr.onerror = function (e) {
+        console.error(xhr.statusText);
+    };
+    xhr.open('GET', url, true);
+    xhr.send(null);
 }
 
 export default function App() {
@@ -278,7 +302,7 @@ export default function App() {
     const person = {
         name: 'ciwei',
         // msg: 'ciwei-00',
-        age : 45
+        age: 45
     }
 
     // console.log('typeof person', typeof person)
@@ -288,6 +312,7 @@ export default function App() {
 
     // testLocalStorage()
     testDB()
+    const [content, setContent] = useState(null)
 
     return (
         <div>
@@ -297,6 +322,13 @@ export default function App() {
                 port={80}
                 {...person}
             />
+            <button onClick={() => {
+                sendRequest((msg) => {
+                    setContent(msg)
+                })
+            }}>send request
+            </button>
+                content: {content}
         </div>
     )
 
