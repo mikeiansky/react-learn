@@ -11,6 +11,8 @@ import ReduxSagaV2 from "./ReduxSagaV2"
 import SimpleReduxV3 from './SimpleReduxV3'
 import ToolReduxV3 from './ToolReduxV3'
 import ReactReduxV3 from './ReactReduxV3'
+import ReduxSagaV3 from "./ReduxSagaV3"
+import ReduxSagaV4 from "./ReduxSagaV4"
 
 function ReduxAppV1() {
     return (
@@ -36,6 +38,8 @@ function ReduxAppV3() {
             <SimpleReduxV3/>
             <ToolReduxV3/>
             <ReactReduxV3/>
+            <ReduxSagaV3/>
+            <ReduxSagaV4/>
         </>
     )
 }
