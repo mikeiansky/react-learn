@@ -284,6 +284,14 @@ function sendRequest(change) {
     xhr.send(null);
 }
 
+function testPayload({payload}){
+    console.log('payload_v1', payload)
+}
+
+function testPayloadV2(props){
+    console.log('payload_v2', props)
+}
+
 export default function App() {
 
     // testAttr()
@@ -313,6 +321,13 @@ export default function App() {
     // testLocalStorage()
     testDB()
     const [content, setContent] = useState(null)
+
+    testPayload({payload:'different'})
+    const data = {payload: 'good'}
+    testPayload(data)
+
+    testPayloadV2({payload: 'vvvv2'})
+    testPayloadV2(data)
 
     return (
         <div>

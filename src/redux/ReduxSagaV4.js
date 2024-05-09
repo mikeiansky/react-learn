@@ -44,7 +44,7 @@ function* helloSaga() {
 function* addAsync(action) {
     console.log('add async', action)
     yield delay(1000)
-    yield put(add({payload: action.payload}))
+    yield put(add(action))
 }
 
 const middleware = createSagaMiddleware()
