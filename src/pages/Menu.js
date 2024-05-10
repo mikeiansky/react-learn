@@ -35,6 +35,7 @@ export default function App(){
                         <li><Link to={'/promise'}>promise</Link></li>
                         <li><Link to={'/react'}>react</Link></li>
                         <li><Link to={'/style'}>style</Link></li>
+                        <li><Link to={'/info'}>info</Link></li>
                     </ul>
                     {/*<button onClick={gotoRedux}>redux</button>*/}
                     <br/>

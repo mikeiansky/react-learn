@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState} from "react"
 
 function testAttr() {
 
@@ -292,7 +292,11 @@ function testPayloadV2(props){
     console.log('payload_v2', props)
 }
 
-export default function App() {
+function testThis(){
+    console.log('normal this', this)
+}
+
+function NormalApp() {
 
     // testAttr()
     // testFunction()
@@ -326,8 +330,10 @@ export default function App() {
     const data = {payload: 'good'}
     testPayload(data)
 
-    testPayloadV2({payload: 'vvvv2'})
-    testPayloadV2(data)
+    // testPayloadV2({payload: 'vvvv2'})
+    // testPayloadV2(data)
+
+    testThis()
 
     return (
         <div>
@@ -348,3 +354,5 @@ export default function App() {
     )
 
 }
+
+export default NormalApp
