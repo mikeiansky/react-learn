@@ -11,8 +11,6 @@ function httpRequest(){
 
 export function apiHello(){
     fetch("https://api.vvhan.com/api/zhichang?type=json")
-        .then(res => res.json())
-        .then(data => console.log(data))
 }
 
 export function apiQinghua(){

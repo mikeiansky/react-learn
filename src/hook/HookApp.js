@@ -1,19 +1,26 @@
 import useRequest from './loginHook'
-import {useState} from "react";
 import {apiHello, apiQinghua} from '../util/request'
 
 
 export default function App() {
-    const {code, data, error, action} = useRequest(apiQinghua)
-    console.log('app code', code, 'data', data, 'error', error)
+    const qinghau1 = useRequest(apiQinghua)
+    // const qinghua2 = useRequest(apiQinghua)
+
+    console.log('qinghau1', qinghau1)
+
     return (
         <>
             <div>
-                Hook content is : {data}
+                qinghua1 content is : {qinghau1.data}
                 <br/>
-                <button onClick={action}>refresh</button>
+                <button onClick={qinghau1.refresh}>refresh qinghua 1</button>
                 <br/>
-                error : {error}
+                <div>==============================</div>
+                {/*qinghua2 content is : {qinghua2.data}*/}
+                {/*<br/>*/}
+                {/*<button onClick={qinghua2.refresh}>refresh qinghua 2</button>*/}
+                {/*<br/>*/}
+                {/*<div>==============================</div>*/}
             </div>
         </>
     )
