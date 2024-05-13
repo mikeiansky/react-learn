@@ -20,6 +20,7 @@ import ReactReducer from '../pages/react/ReactReducer'
 import ReactContext from '../pages/react/ReactContext'
 import Info from "../pages/info/info";
 import Style from '../style'
+import ZustandApp from '../zustand/ZustandApp'
 
 const router = createBrowserRouter([
     {
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
                 path: '/info',
                 element: <Info/>
             },
+            {
+                path: "/zustand",
+                element: <ZustandApp/>
+            }
         ]
     },
     {

@@ -296,6 +296,28 @@ function testThis(){
     console.log('normal this', this)
 }
 
+function testConnectV2(){
+
+    // redux，store
+    // react
+
+    let cf = {
+        name:'ian',
+        age:33,
+        city: {
+            id: 121,
+            name: 'shenzhen'
+        },
+        company: 'ciwei'
+    }
+
+    const mapToProps = ({name, age, city}) => ({name, age, city})
+
+    const cl = mapToProps(cf)
+    console.log(cl)
+
+}
+
 function NormalApp() {
 
     // testAttr()
@@ -323,17 +345,19 @@ function NormalApp() {
     // testAsync()
 
     // testLocalStorage()
-    testDB()
-    const [content, setContent] = useState(null)
-
-    testPayload({payload:'different'})
-    const data = {payload: 'good'}
-    testPayload(data)
+    // testDB()
+    // const [content, setContent] = useState(null)
+    //
+    // testPayload({payload:'different'})
+    // const data = {payload: 'good'}
+    // testPayload(data)
 
     // testPayloadV2({payload: 'vvvv2'})
     // testPayloadV2(data)
 
-    testThis()
+    // testThis()
+
+    testConnectV2()
 
     return (
         <div>
@@ -345,11 +369,11 @@ function NormalApp() {
             />
             <button onClick={() => {
                 sendRequest((msg) => {
-                    setContent(msg)
+                    // setContent(msg)
                 })
             }}>send request
             </button>
-                content: {content}
+                {/*content: {content}*/}
         </div>
     )
 
