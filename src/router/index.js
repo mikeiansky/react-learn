@@ -21,6 +21,7 @@ import ReactContext from '../pages/react/ReactContext'
 import Info from "../pages/info/info";
 import Style from '../style'
 import ZustandApp from '../zustand/ZustandApp'
+import HookApp from '../hook/HookApp'
 
 const router = createBrowserRouter([
     {
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
             {
                 path: "/zustand",
                 element: <ZustandApp/>
+            },
+            {
+                path: "/hook",
+                element: <HookApp/>
             }
         ]
     },
