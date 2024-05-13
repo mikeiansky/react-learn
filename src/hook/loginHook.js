@@ -1,36 +1,34 @@
 import {useEffect, useState} from "react";
 
 
-export default function useRequest(apiFunc) {
+export default function useRequest(api, ...depend) {
+    const [code, setCode] = useState(0)
+    const [data, setData] = useState()
+    const [error, setError] = useState()
 
-    const [res, setRes] = useState()
-
-    const ua = async () => {
+    const action = async () => {
         try {
-            const af = await apiFunc()
-            console.log('af result', af)
-            setRes(af)
+            const jsonResp = await api()
+            const resp = await jsonResp.json()
+            setCode(resp.code)
+            setData(resp.content)
+            setError()
         } catch (err) {
             console.log('af error', err)
+            setError(err)
         }
-
     }
 
     useEffect(() => {
-        ua()
-    }, []);
-
-    const refresh = ua
-
-    console.log('use request res ', res)
-
-    const update = (res) => {
-        setRes(res)
-    }
+        // action()
+        action()
+    }, [...depend]);
 
     return {
-        res,
-        refresh
+        code,
+        data,
+        error,
+        action
     }
 
 }

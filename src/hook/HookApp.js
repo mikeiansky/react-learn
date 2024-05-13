@@ -1,30 +1,19 @@
 import useRequest from './loginHook'
+import {useState} from "react";
+import {apiHello, apiQinghua} from '../util/request'
+
 
 export default function App() {
-
-    let count = 0
-
-    const api = async () => {
-        return await new Promise(function (resolve, reject) {
-            setTimeout(() => {
-                count++
-                resolve('hello api' + count)
-                // reject('hello api')
-            }, 2000)
-        })
-    }
-
-    const request = useRequest(api)
-    console.log('request hook ', request)
-
+    const {code, data, error, action} = useRequest(apiQinghua)
+    console.log('app code', code, 'data', data, 'error', error)
     return (
         <>
             <div>
-                this is hook app
+                Hook content is : {data}
                 <br/>
-                <button onClick={request.refresh}>refresh</button>
+                <button onClick={action}>refresh</button>
                 <br/>
-                request result : {request.res?.toString()}
+                error : {error}
             </div>
         </>
     )
