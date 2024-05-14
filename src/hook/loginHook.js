@@ -6,6 +6,8 @@ export default function useRequest(api, ...depend) {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [version, setVersion] = useState(0);
+    const [res, setRes] = useState()
+
     useEffect(() => {
         let ignore = false;
         setLoading(true)
@@ -17,6 +19,7 @@ export default function useRequest(api, ...depend) {
             setData(data.content);
             setError(null);
             setLoading(false);
+            setRes(data)
         }).catch(error => {
             setError(error)
             setLoading(false);
@@ -38,6 +41,7 @@ export default function useRequest(api, ...depend) {
         error,
         loading,
         version,
-        refresh
+        refresh,
+        res,
     };
 }

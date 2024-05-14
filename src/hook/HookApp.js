@@ -3,10 +3,9 @@ import {apiHello, apiQinghua} from '../util/request'
 
 
 export default function App() {
-    const qinghau1 = useRequest(apiQinghua)
-    // const qinghua2 = useRequest(apiQinghua)
+    const qinghau1 = useRequest(()=> apiQinghua())
 
-    console.log('qinghau1', qinghau1)
+    console.log('result ', qinghau1.res?.code, qinghau1.res?.data)
 
     return (
         <>
