@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-export default function useRequest(api, ...depend) {
+export default function useRequest(api, {useLoading = false, depends = []} = {}) {
     const [code, setCode] = useState(0);
     const [data, setData] = useState();
     const [error, setError] = useState(null);
@@ -8,9 +8,11 @@ export default function useRequest(api, ...depend) {
     const [version, setVersion] = useState(0);
     const [res, setRes] = useState()
 
-    useEffect(() => {
+    const quickRefresh = () => {
         let ignore = false;
-        setLoading(true)
+        if (useLoading) {
+            setLoading(true)
+        }
         api().then(response => {
             return response.json()
         }).then(data => {
@@ -18,18 +20,21 @@ export default function useRequest(api, ...depend) {
             setCode(data.code);
             setData(data.content);
             setError(null);
-            setLoading(false);
             setRes(data)
         }).catch(error => {
+            if (ignore) return
             setError(error)
-            setLoading(false);
         }).finally(() => {
-            // setLoading(false);
+            if (ignore) return
+            if (useLoading) {
+                setLoading(false);
+            }
         })
-        return () => {
-            ignore = true
-        };
-    }, [...depend, version]);
+    }
+
+    useEffect(() => {
+        quickRefresh()
+    }, [...depends, version]);
 
     const refresh = () => {
         setVersion(version + 1)
@@ -42,6 +47,7 @@ export default function useRequest(api, ...depend) {
         loading,
         version,
         refresh,
+        quickRefresh,
         res,
     };
 }
