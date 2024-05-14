@@ -1,12 +1,19 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
-export default function useRequest(api, {useLoading = false, depends = []} = {}) {
+export default function useRequest(api, {
+    useLoading = false,
+    page = 1,
+    pageSize = 10,
+    depends = [],
+} = {}) {
+    const pageRef = useRef(page)
+    const pageSizeRef = useRef(pageSize)
     const [code, setCode] = useState(0);
     const [data, setData] = useState();
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [version, setVersion] = useState(0);
-    const [res, setRes] = useState();
+    const [__depends, setDepends] = useState(depends)
     let latestRequestId = 0
 
     const action = () => {
@@ -16,7 +23,7 @@ export default function useRequest(api, {useLoading = false, depends = []} = {})
         if (useLoading) {
             setLoading(true);
         }
-        api().then(response => {
+        api(pageRef.current, pageSizeRef.current).then(response => {
             return response.json()
         }).then(data => {
             if (currentRequestId !== latestRequestId) {
@@ -25,7 +32,6 @@ export default function useRequest(api, {useLoading = false, depends = []} = {})
             setCode(data.code);
             setData(data.content);
             setError(null);
-            setRes(data);
         }).catch(error => {
             if (currentRequestId !== latestRequestId) {
                 return;
@@ -42,12 +48,28 @@ export default function useRequest(api, {useLoading = false, depends = []} = {})
     }
 
     const refresh = () => {
+        pageRef.current = page
+        pageSizeRef.current = pageSize
         action();
+    }
+
+    const setPage = (page) => {
+        pageRef.current = page
+        action()
+    }
+
+    const setPageSize = (pageSize) => {
+        pageSizeRef.current = pageSize
+        action()
+    }
+
+    const clearError = () => {
+        setError()
     }
 
     useEffect(() => {
         refresh()
-    }, [...depends, version]);
+    }, [page, pageSize, useLoading, ...depends, version]);
 
     return {
         code,
@@ -55,7 +77,13 @@ export default function useRequest(api, {useLoading = false, depends = []} = {})
         error,
         loading,
         version,
+        setVersion,
         refresh,
-        res,
+        setDepends,
+        page: pageRef.current,
+        setPage,
+        pageSize: pageSizeRef.current,
+        setPageSize,
+        clearError
     };
 }

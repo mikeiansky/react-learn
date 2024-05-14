@@ -13,6 +13,7 @@ export function apiHello(){
     fetch("https://api.vvhan.com/api/zhichang?type=json")
 }
 
-export function apiQinghua(){
+export function apiQinghua(optional){
+    console.log('api qing hua optional', optional)
     return fetch("https://api.uomg.com/api/rand.qinghua")
 }
