@@ -3,18 +3,16 @@ import {apiHello, apiQinghua} from '../util/request'
 
 
 export default function App() {
-    const qinghau1 = useRequest(() => apiQinghua())
+    const apiReq = useRequest(() => apiQinghua({type:0, page: 1, pageSize: 10}))
 
-    console.log('result ', qinghau1.res?.code, qinghau1.res?.content, qinghau1.version)
+    console.log('result ', apiReq.res?.code, apiReq.res?.content, apiReq.version)
 
     return (
         <>
             <div>
-                qinghua1 content is : {qinghau1.data}
+                qinghua1 content is : {apiReq.data}
                 <br/>
-                <button onClick={qinghau1.refresh}>refresh qinghua 1</button>
-                <br/>
-                <button onClick={qinghau1.quickRefresh}>refresh qinghua 2</button>
+                <button onClick={apiReq.refresh}>refresh qinghua 1</button>
                 <br/>
                 <br/>
                 <div>==============================</div>
