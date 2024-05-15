@@ -1,6 +1,7 @@
 import './index.css'
 import './cat.scss'
 import './dog.css'
+import './app.css'
 
 export default function App(){
 
@@ -14,6 +15,10 @@ export default function App(){
             </div>
             <div className={'dog_body'}>
                 <h1 className={'dog_eye'}> this is dog style</h1>
+            </div>
+            <div>
+                <image className={'my_img'}/>
+                asdfadsf
             </div>
         </>
     )
