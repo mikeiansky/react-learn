@@ -22,6 +22,7 @@ import Info from "../pages/info/info";
 import Style from '../style'
 import ZustandApp from '../zustand/ZustandApp'
 import HookApp from '../hook/HookApp'
+import LottieApp from '../lottie/LottieApp'
 
 const router = createBrowserRouter([
     {
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
             {
                 path: "/hook",
                 element: <HookApp/>
+            },
+            {
+                path: '/lottie',
+                element: <LottieApp/>
             }
         ]
     },
