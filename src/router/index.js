@@ -23,6 +23,7 @@ import Style from '../style'
 import ZustandApp from '../zustand/ZustandApp'
 import HookApp from '../hook/HookApp'
 import LottieApp from '../lottie/LottieApp'
+import MyUploadApp from '../pages/base/MyUpload'
 
 const router = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
                     {
                         path: '/base/async',
                         element: <AsyncApp/>
+                    },
+                    {
+                        path: '/base/upload',
+                        element: <MyUploadApp/>
                     }
                 ]
             },
