@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="root">
+    </div>
+
+    <script type="text/javascript" src="./js/react.development.js"></script>
+    <script type="text/javascript" src="./js/react-dom.development.js"></script>
+    <script type="text/javascript" src="./js/babel.min.js"></script>
+    <script type="text/javascript" src="./js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        class Login extends React.Component {
+
+            submit = (event) => {
+                event.preventDefault()
+                const { username, password } = this.refs
+                console.log('username', username, username.value)
+                console.log('password', password, password.value)
+            }
+
+            onUsernameChange = (event) => {
+                console.log('onUsernameChange', event.target.value)
+            }
+
+            onPasswordChange = (event) => {
+                console.log('onPasswordChange', event.target.value)
+            }
+
+            render() {
+
+                return <form onSubmit={this.submit}>
+                    username:<input ref="username" type='text' onChange={this.onUsernameChange} /><br />
+                    password:<input ref="password" type='password' onChange={this.onPasswordChange} /><br />
+                    <button >submit</button>
+                </form>
+            }
+
+        }
+
+        ReactDOM.render(<Login />, document.getElementById('root'))
+
+    </script>
+
+</body>
+
+</html>

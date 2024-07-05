@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="root">
+        <div id="test1"></div>
+    </div>
+
+    <script type="text/javascript" src="./js/react.development.js"></script>
+    <script type="text/javascript" src="./js/react-dom.development.js"></script>
+    <script type="text/javascript" src="./js/babel.min.js"></script>
+    <script type="text/javascript" src="./js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        function Person(props) {
+            const { name, age } = props
+            return <h1>{name}:{age}</h1>
+        }
+
+        Person.propTypes = {
+            name: PropTypes.string.isRequired,
+            age: PropTypes.number,
+        }
+
+        Person.defaultProps = {
+            name: 'c',
+            age: 8
+        }
+
+
+        ReactDOM.render(<Person age="23" />, document.getElementById('test1'))
+
+    </script>
+
+</body>
+
+</html>

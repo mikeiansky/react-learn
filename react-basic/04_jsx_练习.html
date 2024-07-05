@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="root">
+
+    </div>
+
+    <script type="text/javascript" src="./js/react.development.js"></script>
+    <script type="text/javascript" src="./js/react-dom.development.js"></script>
+    <script type="text/javascript" src="./js/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        const data = [
+            {id:1, name:'react'},
+            {id:2, name:'vue'},
+            {id:3, name:'angular'},
+        ]
+
+        const VDOM = <h1>
+                <ul>
+                   {
+                        data.map(item=>{
+                            return <li>{item.name}</li>
+                        })
+                   } 
+                </ul>
+            </h1>
+
+        ReactDOM.render(VDOM, document.getElementById('root'))
+
+
+    </script>
+    
+</body>
+</html>

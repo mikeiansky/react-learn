@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="root"> 
+    </div>
+
+    <script type="text/javascript" src="./js/react.development.js"></script>
+    <script type="text/javascript" src="./js/react-dom.development.js"></script>
+    <script type="text/javascript" src="./js/babel.min.js"></script>
+    <script type="text/javascript" src="./js/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        class Person extends React.Component {
+ 
+            showRef = ()=> {
+                console.log('this.test_p', this.test_p)
+            }
+
+            saveRef = (e) => {
+                this.test_p = e
+                console.log('save ref')
+            }
+
+            render() {
+                const { name, age } = this.props
+                return <h1 ref={this.saveRef} onClick={this.showRef}>{name}:{age}</h1>
+            }
+
+        }
+ 
+        ReactDOM.render(<Person name='x' age={333} />, document.getElementById('root'))
+
+    </script>
+
+</body>
+
+</html>

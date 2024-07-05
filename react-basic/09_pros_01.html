@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="root">
+        <div id="test1"></div>
+        <div id="test2"></div>
+        <div id="test3"></div>
+    </div>
+
+    <script type="text/javascript" src="./js/react.development.js"></script>
+    <script type="text/javascript" src="./js/react-dom.development.js"></script>
+    <script type="text/javascript" src="./js/babel.min.js"></script>
+
+    <script type="text/babel">
+
+        class MyComponent extends React.Component {
+
+            render(){
+                const {name, age} = this.props
+                return <h1>{name}:{age}</h1>
+            }
+
+        }
+
+        ReactDOM.render(<MyComponent name='z' age={33}/>, document.getElementById('test1'))
+        ReactDOM.render(<MyComponent name='w' age={133}/>, document.getElementById('test2'))
+        ReactDOM.render(<MyComponent name='x' age={333}/>, document.getElementById('test3'))
+
+    </script>
+
+</body>
+</html>
