@@ -1,0 +1,94 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=pie-roseType-simple&code=PYBwLglsB2AEC8sDeAoWsA2BTA5l6AJgFzJrqxigkDkARsGJQLbVkC-ANGZcBvQB4lU5WAGcAFsADuJMACcArli4iAZlgCGYBXKxCyIphrkBrIWMkyKirLE4HyBLRoBqELFaQXpsmx1i6GgQA8tAYAJ4kqhoYorb2Iui6opS65hI-1kp2KomiGgBuWACCogCSRnjplr7ZbA716AliWHLuoiQA2g7CidAaTHqw1AByEDjikNA4MbYAwuLGYNS5ImDhIEPUIO4rDklBEAodsJ0ArAAM_gBMlwC6q-QAxvhgrV3UlwCkK8Pf1A99gFgHEACobLbGTR7RKwCBvJgAZXW2H0sPQ9DkBFaACVDscSAAOIHNEROMAaLpA9BeAoxJQkAAsV1g_UGNDkINsAEZqDlqchYHSMAzYABmQn-NlbTlxWDXPmkxK0-lDMXXKUDGVc8WKx4iFUitUs6UcnWMvUCw2i66S1las1ys6W9GC4U2gBsmvZw1ltg9LvR1qG1w19p91D9sAA7IHYcGSNy7abfTrCYqgXcGmQs2wANxAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+
+    var option;
+
+    option = {
+      legend: {
+        top: 'bottom'
+      },
+      toolbox: {
+        show: true,
+        feature: {
+          mark: { show: true },
+          dataView: { show: true, readOnly: false },
+          restore: { show: true },
+          saveAsImage: { show: true }
+        }
+      },
+      series: [
+        {
+          name: 'Nightingale Chart',
+          type: 'pie',
+          radius: [50, 250],
+          center: ['50%', '50%'],
+          roseType: 'area',
+          itemStyle: {
+            borderRadius: 8
+          },
+          data: [
+            { value: 40, name: 'rose 1' },
+            { value: 38, name: 'rose 2' },
+            { value: 32, name: 'rose 3' },
+            { value: 30, name: 'rose 4' },
+            { value: 28, name: 'rose 5' },
+            { value: 26, name: 'rose 6' },
+            { value: 22, name: 'rose 7' },
+            { value: 18, name: 'rose 8' }
+          ]
+        }
+      ]
+    };
+
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+
+</html>
